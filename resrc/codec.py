@@ -26,23 +26,26 @@ for file_name in files:
         success,image = vidcap.read()
         # print('Read a new frame: ', success)
         count += 1
+        break # Only get the first frame
 
 print("finish! convert video to frame")
 
+# make grid images
 
-for filename in files:
-    img_array = []
-    if filename.endswith(".mp4"):
-        # get file directory
-        dir = os.path.dirname(filename)
-        # get file name
-        name = os.path.basename(filename)
-        # get file name without extension
-        name = os.path.splitext(name)[0]
-        # get directory which is the name of the video
-        image_dir = os.path.join(dir, name)
 
-        os.system(f"ffmpeg -f image2 -framerate 10 -i {image_dir}/%d.png -c:v libx264 -preset veryslow {filename} -y")
+# for filename in files:
+#     img_array = []
+#     if filename.endswith(".mp4"):
+#         # get file directory
+#         dir = os.path.dirname(filename)
+#         # get file name
+#         name = os.path.basename(filename)
+#         # get file name without extension
+#         name = os.path.splitext(name)[0]
+#         # get directory which is the name of the video
+#         image_dir = os.path.join(dir, name)
 
-        shutil.rmtree(image_dir)
+#         os.system(f"ffmpeg -f image2 -framerate 10 -i {image_dir}/%d.png -c:v libx264 -preset veryslow {filename} -y")
+
+        # shutil.rmtree(image_dir)
 
