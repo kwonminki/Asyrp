@@ -45,7 +45,7 @@ for filename in files:
         # get directory which is the name of the video
         image_dir = os.path.join(dir, name)
 
-        os.system(f"ffmpeg -f image2 -framerate 10 -i {image_dir}/%d.png -c:v libx264 -crf 18 -preset veryslow {filename} -pix_fmt yuv420p -y")
+        os.system(f"ffmpeg -f image2 -framerate 10 -i {image_dir}/%d.png -c:v libx264 -crf 18 -preset veryslow -pix_fmt yuv420p {filename} -y")
 
         shutil.rmtree(image_dir)
 
