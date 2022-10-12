@@ -12,7 +12,7 @@ def listdirs(rootdir, _files=[]):
 
 # Get all files in the directory
 files = []
-listdirs("video_ddim", files)
+listdirs("video_quality", files)
 
 
 for file_name in files:
